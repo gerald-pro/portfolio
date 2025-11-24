@@ -1,11 +1,20 @@
 // components/home/featured-project.tsx
 import Link from "next/link";
+import Image from "next/image";
+import { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
-export function FeaturedProject() {
+interface FeaturedProjectProps {
+    project: Project;
+}
+
+export function FeaturedProject({ project }: FeaturedProjectProps) {
+    // Helper to strip versions (e.g. "Laravel 11.x" -> "Laravel")
+    const stripVersion = (tech: string) => tech.replace(/\s\d+(\.\d+)*.*$/, '');
+
     return (
         <section className="space-y-6 py-8">
             <div className="flex items-end justify-between gap-4">
@@ -14,89 +23,63 @@ export function FeaturedProject() {
                         Proyecto destacado
                     </Badge>
                     <h2 className="text-2xl font-bold tracking-tight text-brand-900 dark:text-brand-50">
-                        MOC — Gestión integral de transporte
+                        {project.title}
                     </h2>
                 </div>
-                <Button variant="link" className="hidden md:inline-flex h-auto p-0 text-brand-700 dark:text-brand-400" asChild>
-                    <Link href="https://moc.mx/" target="_blank" rel="noreferrer">
-                        Ver en producción <ExternalLink className="ml-1 h-3 w-3" />
-                    </Link>
-                </Button>
-            </div>
-
-            <Card className="grid gap-6 p-6 md:grid-cols-[1.5fr_1fr] md:gap-8 overflow-hidden">
-                {/* Descripción */}
-                <div className="space-y-6">
-                    <div className="space-y-4 text-slate-600 dark:text-slate-300">
-                        <p className="font-medium text-slate-900 dark:text-slate-100 text-lg">
-                            Plataforma para gestionar flota, rutas, órdenes y comunicación
-                            operativa en tiempo real.
-                        </p>
-                        <p className="leading-relaxed">
-                            MOC gestiona el ciclo completo del transporte de mercancías:
-                            asignación, seguimiento, viaje, comunicación operativa y
-                            trazabilidad.
-                        </p>
-
-                        <ul className="grid gap-3 sm:grid-cols-2">
-                            {[
-                                { title: "Flota y rutas", desc: "Control total de activos" },
-                                { title: "Órdenes y viajes", desc: "Cronología en tiempo real" },
-                                { title: "Comunicación", desc: "Chat y alertas operativas" },
-                                { title: "Seguridad", desc: "Roles y auditoría completa" },
-                            ].map((item) => (
-                                <li key={item.title} className="flex items-start gap-2 text-sm">
-                                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-500 flex-shrink-0" />
-                                    <span>
-                                        <strong className="font-medium text-slate-900 dark:text-slate-100">{item.title}:</strong>{" "}
-                                        {item.desc}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <Button asChild className="rounded-full">
-                        <Link href="/projects/moc">
-                            Ver caso completo <ArrowRight className="ml-2 h-4 w-4" />
+                {project.links?.demo && (
+                    <Button variant="link" className="hidden md:inline-flex h-auto p-0 text-brand-700 dark:text-brand-400" asChild>
+                        <Link href={project.links.demo} target="_blank" rel="noreferrer">
+                            Ver en producción <ExternalLink className="ml-1 h-3 w-3" />
                         </Link>
                     </Button>
-                </div>
+                )}
+            </div>
 
-                {/* Lado técnico */}
-                <div className="flex flex-col justify-between rounded-2xl bg-brand-50/50 dark:bg-brand-950/30 p-5 border border-brand-100/50 dark:border-brand-800/30">
-                    <div className="space-y-4">
-                        <div>
-                            <h3 className="font-semibold text-brand-900 dark:text-brand-100 text-sm uppercase tracking-wider mb-3">
-                                Tech Stack
-                            </h3>
+            <Card className="overflow-hidden border-brand-100 dark:border-brand-800 bg-white dark:bg-slate-950/50">
+                <div className="grid md:grid-cols-2 gap-6">
+                    {/* Content Side */}
+                    <div className="p-6 md:p-8 flex flex-col justify-center space-y-6">
+                        <div className="space-y-4">
+                            <p className="text-lg font-medium text-slate-900 dark:text-slate-100">
+                                {project.description}
+                            </p>
+
+                            {/* Tech Stack - Simplified */}
                             <div className="flex flex-wrap gap-2">
-                                {["CodeIgniter", "Vue.js", "MySQL", "Google Cloud"].map((tech) => (
-                                    <Badge key={tech} variant="secondary" className="bg-white dark:bg-slate-800 border border-brand-100 dark:border-slate-700">
-                                        {tech}
+                                {project.techStack.backend?.slice(0, 3).map((tech) => (
+                                    <Badge key={tech} variant="secondary" className="bg-brand-50 text-brand-900 dark:bg-brand-900/20 dark:text-brand-200">
+                                        {stripVersion(tech)}
+                                    </Badge>
+                                ))}
+                                {project.techStack.frontend?.slice(0, 2).map((tech) => (
+                                    <Badge key={tech} variant="secondary" className="bg-brand-50 text-brand-900 dark:bg-brand-900/20 dark:text-brand-200">
+                                        {stripVersion(tech)}
                                     </Badge>
                                 ))}
                             </div>
                         </div>
 
-                        <div>
-                            <h3 className="font-semibold text-brand-900 dark:text-brand-100 text-sm uppercase tracking-wider mb-2">
-                                Impacto
-                            </h3>
-                            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                                <li>• Reducción de fricción operativa</li>
-                                <li>• Mejora en tiempos de entrega</li>
-                                <li>• Trazabilidad 100% auditable</li>
-                            </ul>
+                        <div className="pt-2">
+                            <Button asChild className="rounded-full bg-brand-600 hover:bg-brand-700 text-white dark:bg-brand-600 dark:hover:bg-brand-500">
+                                <Link href={`/projects/${project.slug}`}>
+                                    Ver caso completo <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
                         </div>
                     </div>
 
-                    <div className="mt-6 md:hidden">
-                        <Button variant="link" className="h-auto p-0 text-brand-700 dark:text-brand-400" asChild>
-                            <Link href="https://moc.mx/" target="_blank" rel="noreferrer">
-                                Ver en producción <ExternalLink className="ml-1 h-3 w-3" />
-                            </Link>
-                        </Button>
+                    {/* Image Side */}
+                    <div className="relative h-64 md:h-auto min-h-[300px] bg-slate-100 dark:bg-slate-900">
+                        {project.images?.cover && (
+                            <Image
+                                src={project.images.cover}
+                                alt={project.title}
+                                fill
+                                className="object-cover transition-transform duration-700 hover:scale-105"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                priority
+                            />
+                        )}
                     </div>
                 </div>
             </Card>

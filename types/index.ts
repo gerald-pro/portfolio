@@ -25,4 +25,5 @@ export interface Project {
     };
     date?: string;
     role?: string;
+    isFeatured?: boolean;
 }

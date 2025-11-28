@@ -45,46 +45,42 @@ export function Hero() {
             </div>
 
             {/* Columna derecha: foto + tech stack */}
-            <div className="relative">
-                <div className="absolute -top-6 -right-4 h-32 w-32 rounded-full bg-brand-500/20 blur-3xl dark:bg-brand-400/10" />
-                <div className="absolute -bottom-6 -left-4 h-32 w-32 rounded-full bg-brand-700/20 blur-3xl dark:bg-brand-600/10" />
+            <Card className="relative overflow-hidden p-3 border-brand-100/50 dark:border-brand-800/50 bg-white/60 dark:bg-slate-900/60">
+                <div className="overflow-hidden rounded-2xl border border-brand-100/50 dark:border-brand-800/50 bg-brand-50 dark:bg-slate-950">
+                    <Image
+                        src="/profile.jpg"
+                        alt="Gerald Avalos"
+                        width={600}
+                        height={600}
+                        className="h-64 w-full object-cover sm:h-80 transition-transform duration-700 hover:scale-105"
+                        priority
+                    />
+                </div>
 
-                <Card className="relative overflow-hidden p-3 border-brand-100/50 dark:border-brand-800/50 bg-white/60 dark:bg-slate-900/60">
-                    <div className="overflow-hidden rounded-2xl border border-brand-100/50 dark:border-brand-800/50 bg-brand-50 dark:bg-slate-950">
-                        <Image
-                            src="/profile.jpg"
-                            alt="Gerald Avalos"
-                            width={600}
-                            height={600}
-                            className="h-64 w-full object-cover sm:h-80 transition-transform duration-700 hover:scale-105"
-                            priority
-                        />
+                <div className="mt-4 space-y-3 px-1 pb-1">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        Stack Principal
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            "Laravel",
+                            "Next.js",
+                            "Vue",
+                            "Flutter",
+                            "Google Cloud",
+                        ].map((item) => (
+                            <Badge
+                                key={item}
+                                variant="secondary"
+                                className="bg-brand-50 text-brand-900 hover:bg-brand-100 dark:bg-brand-900/30 dark:text-brand-200 dark:hover:bg-brand-900/50"
+                            >
+                                {item}
+                            </Badge>
+                        ))}
                     </div>
+                </div>
+            </Card>
 
-                    <div className="mt-4 space-y-3 px-1 pb-1">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                            Stack Principal
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            {[
-                                "Laravel",
-                                "Next.js",
-                                "Vue",
-                                "Flutter",
-                                "Google Cloud",
-                            ].map((item) => (
-                                <Badge
-                                    key={item}
-                                    variant="secondary"
-                                    className="bg-brand-50 text-brand-900 hover:bg-brand-100 dark:bg-brand-900/30 dark:text-brand-200 dark:hover:bg-brand-900/50"
-                                >
-                                    {item}
-                                </Badge>
-                            ))}
-                        </div>
-                    </div>
-                </Card>
-            </div>
         </section>
     );
 }

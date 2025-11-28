@@ -11,6 +11,7 @@ import {
     SectionSubtitle,
     SectionTitle,
 } from "@/components/ui/section";
+import { ProjectGallery } from "@/components/project/project-gallery";
 
 interface ProjectPageProps {
     params: Promise<{
@@ -111,23 +112,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
                         {/* Gallery */}
                         {project.images?.gallery && project.images.gallery.length > 0 && (
-                            <div className="space-y-6">
-                                <h3 className="text-xl font-semibold text-brand-900 dark:text-brand-100">
+                            <section className="space-y-6">
+                                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
                                     Galería
-                                </h3>
-                                <div className="grid gap-4 sm:grid-cols-2">
-                                    {project.images.gallery.map((img, index) => (
-                                        <div key={index} className="relative h-48 overflow-hidden rounded-lg border border-brand-100 dark:border-brand-800 bg-slate-100 dark:bg-slate-900">
-                                            <Image
-                                                src={img}
-                                                alt={`${project.title} screenshot ${index + 1}`}
-                                                fill
-                                                className="object-cover transition-transform hover:scale-105"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                                </h2>
+                                <ProjectGallery images={project.images.gallery} title={project.title} />
+                            </section>
                         )}
 
                         {/* Features */}

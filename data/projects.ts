@@ -5,6 +5,8 @@ import { moc } from "./projects/moc";
 import { uboldi } from "./projects/uboldi";
 import { drawseq } from "./projects/drawseq";
 import { sistemaEclesiastico } from "./projects/sistema-eclesiastico";
+import { zencillo } from "./projects/zencillo";
+import { zencilloFidelizacion } from "./projects/zencillo-fidelizacion";
 
 export const projects: Project[] = [
     hunar,
@@ -13,4 +15,6 @@ export const projects: Project[] = [
     uboldi,
     drawseq,
     sistemaEclesiastico,
+    zencillo,
+    zencilloFidelizacion,
 ];

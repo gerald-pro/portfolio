@@ -1,6 +1,7 @@
 // components/layout/site-header.tsx
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function SiteHeader() {
   return (
@@ -25,6 +26,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <ModeToggle />
         </nav>
       </div>
     </header>

@@ -13,9 +13,6 @@ export default function AboutPage() {
       <Section>
         <SectionHeader>
           <SectionTitle>Sobre mí</SectionTitle>
-          <SectionSubtitle>
-            Ingeniero en sistemas especializado en desarrollo web y móvil.
-          </SectionSubtitle>
         </SectionHeader>
 
         <div className="grid gap-12 md:grid-cols-[2fr_1fr]">

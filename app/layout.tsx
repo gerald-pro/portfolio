@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -28,20 +29,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-brand-100 text-slate-900 antialiased",
+          "min-h-screen bg-brand-100 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100",
           fontSans.variable
         )}
       >
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">
-            <div className="container py-10 px-6 md:py-16">{children}</div>
-          </main>
-          <SiteFooter />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex-1">
+              <div className="container py-10 px-6 md:py-16">{children}</div>
+            </main>
+            <SiteFooter />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -64,17 +64,17 @@ export default function AboutPage() {
           <div className="space-y-6">
             <Card className="h-full border-brand-100 dark:border-brand-800">
               <CardHeader>
-                <CardTitle className="text-lg font-bold text-brand-900 dark:text-brand-100">
+                <CardTitle className="text-lg font-bold text-brand-400">
                   Habilidades Técnicas
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-200">
                     Backend
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["PHP", "CodeIgniter", "Laravel"].map((skill) => (
+                    {["PHP", "CodeIgniter", "Laravel", "JAVA", "Spring Boot"].map((skill) => (
                       <Badge
                         key={skill}
                         variant="secondary"

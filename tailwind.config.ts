@@ -8,6 +8,15 @@ const config: Config = {
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "class",
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ["var(--font-heading)"],
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
+      },
+    },
+  },
 };
 
 export default config;

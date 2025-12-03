@@ -8,6 +8,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/geraldavalos", // Placeholder
     linkedin: "https://www.linkedin.com/in/geraldavalos", // Placeholder
+    email: "avaloss.gerald@gmail.com", // Placeholder
   },
   mainNav: [
     { href: "/", label: "Inicio" },

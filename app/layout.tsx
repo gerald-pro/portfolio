@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Orbitron, Rajdhani, Share_Tech_Mono } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
@@ -9,9 +9,23 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const fontSans = Inter({
+// Cyberpunk Typography
+const fontHeading = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const fontSans = Rajdhani({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const fontMono = Share_Tech_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -32,14 +46,17 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-brand-100 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100",
-          fontSans.variable
+          "min-h-screen bg-brand-950 text-slate-100 antialiased",
+          fontHeading.variable,
+          fontSans.variable,
+          fontMono.variable
         )}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           <div className="flex min-h-screen flex-col">

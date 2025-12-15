@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { ThemeProvider } from "@/components/theme-provider";
 
 // Cyberpunk Typography
 const fontHeading = Orbitron({
@@ -43,30 +42,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
       <body
         className={cn(
-          "min-h-screen bg-brand-950 text-slate-100 antialiased",
+          "min-h-screen bg-surface-950 text-slate-100 antialiased",
           fontHeading.variable,
           fontSans.variable,
           fontMono.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          forcedTheme="dark"
-          disableTransitionOnChange
-        >
-          <div className="flex min-h-screen flex-col">
-            <SiteHeader />
-            <main className="flex-1">
-              <div className="container py-10 px-6 md:py-16">{children}</div>
-            </main>
-            <SiteFooter />
-          </div>
-        </ThemeProvider>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">
+            <div className="container py-10 px-6 md:py-16">
+              {children}
+            </div>
+          </main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

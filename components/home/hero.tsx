@@ -23,7 +23,7 @@ export function Hero() {
                         <Badge
                             key={item}
                             variant="outline"
-                            className="bg-black/50 backdrop-blur-sm border-cyber-cyan/30 text-cyber-cyan text-[10px]"
+                            className="bg-black/50 backdrop-blur-sm text-cyber-cyan"
                         >
                             {item}
                         </Badge>

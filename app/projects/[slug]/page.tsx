@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <div className="space-y-10">
                         {/* Overview */}
                         <div className="prose prose-slate dark:prose-invert max-w-none">
-                            <h3 className="text-xl font-semibold text-brand-900 dark:text-brand-100">
+                            <h3 className="text-xl font-semibold text-brand-200">
                                 Descripción General
                             </h3>
                             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -123,19 +123,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         {/* Features */}
                         {project.features && (
                             <div className="space-y-6">
-                                <h3 className="text-xl font-semibold text-brand-900 dark:text-brand-100">
+                                <h3 className="text-xl font-semibold text-brand-200">
                                     Funcionalidades Clave
                                 </h3>
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     {project.features.map((featureGroup) => (
-                                        <Card key={featureGroup.title} className="border-brand-100 dark:border-brand-800 bg-brand-50/50 dark:bg-slate-900/50">
+                                        <Card key={featureGroup.title} className="border-brand-800 bg-slate-900/50">
                                             <CardHeader className="pb-2">
-                                                <CardTitle className="text-base font-bold text-brand-900 dark:text-brand-100">
+                                                <CardTitle className="text-base font-bold text-brand-200">
                                                     {featureGroup.title}
                                                 </CardTitle>
                                             </CardHeader>
                                             <CardContent>
-                                                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 dark:text-slate-400">
+                                                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400">
                                                     {featureGroup.items.map((item) => (
                                                         <li key={item}>{item}</li>
                                                     ))}
@@ -152,7 +152,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <div className="space-y-6">
                         <Card className="border-brand-100 dark:border-brand-800">
                             <CardHeader>
-                                <CardTitle className="text-lg font-bold text-brand-900 dark:text-brand-100">
+                                <CardTitle className="text-lg font-bold text-brand-200">
                                     Stack Tecnológico
                                 </CardTitle>
                             </CardHeader>
@@ -167,8 +167,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                                                 <Badge
                                                     key={tech}
                                                     variant="secondary"
-                                                    className="bg-brand-100 text-brand-900 hover:bg-brand-200 dark:bg-brand-900/40 dark:text-brand-100"
-                                                >
+
+                                                    className="hover:bg-brand-800 bg-brand-900/40 text-brand-400">
                                                     {tech}
                                                 </Badge>
                                             ))}

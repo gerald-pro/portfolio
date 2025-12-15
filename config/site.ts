@@ -1,7 +1,7 @@
 // config/site.ts
 export const siteConfig = {
   name: "Gerald Avalos",
-  role: "Full-Stack Developer",
+  role: "Software Developer",
   description:
     "Portafolio personal de Gerald Avalos, ingeniero en sistemas especializado en desarrollo web y móvil.",
   url: "https://gerald-avalos.com", // Placeholder
@@ -12,10 +12,9 @@ export const siteConfig = {
   },
   mainNav: [
     { href: "/", label: "Inicio" },
-    { href: "/about", label: "Sobre mí" },
     { href: "/projects", label: "Proyectos" },
     { href: "/experience", label: "Experiencia" },
-    { href: "/contact", label: "Contacto" },
+    { href: "/about", label: "Sobre mí" },
   ],
 } as const;
 

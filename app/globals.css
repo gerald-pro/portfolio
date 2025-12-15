@@ -1,56 +1,36 @@
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *));
 
-/* Cyberpunk Theme - Inspired by Blade Runner 2049 & Cyberpunk 2077 */
+/* =========================================================
+   DESIGN TOKENS — CYBERPUNK THEME
+   Inspired by Blade Runner 2049 & Cyberpunk 2077
+   ========================================================= */
 @theme {
-  /* Primary Cyberpunk Colors */
-  --color-cyber-red: #a30502;
-  /* Neon Red */
-  --color-cyber-orange: #f78b04;
-  /* Warning Orange */
-  --color-cyber-dark: #2b1718;
-  /* Deep Shadow */
-  --color-cyber-teal: #153a42;
-  /* Dark Teal */
-  --color-cyber-cyan: #027f93;
-  /* Electric Cyan */
+  /* ========== SURFACES (BACKGROUND / LAYERS) ========== */
+  --color-surface-950: #1a0c0d; /* App background */
+  --color-surface-900: #2b1718; /* Cards / sections */
+  --color-surface-800: #3d2326; /* Elevated surfaces */
+  --color-surface-700: #4a2d30; /* Hover / contrast */
 
-  /* Extended palette for gradients and variations */
-  --color-brand-950: #1a0c0d;
-  /* Darkest - almost black with red tint */
-  --color-brand-900: #2b1718;
-  /* cyber-dark */
-  --color-brand-800: #3d2326;
-  /* Slightly lighter dark */
-  --color-brand-700: #a30502;
-  /* cyber-red */
-  --color-brand-600: #c90602;
-  /* Lighter red */
-  --color-brand-500: #f78b04;
-  /* cyber-orange */
-  --color-brand-400: #f9a640;
-  /* Lighter orange */
-  --color-brand-300: #027f93;
-  /* cyber-cyan */
-  --color-brand-200: #03a3bc;
-  /* Lighter cyan */
-  --color-brand-100: #153a42;
-  /* cyber-teal */
-  --color-brand-50: #1f4f59;
-  /* Lightest teal */
+  /* ========== PRIMARY (CYAN) ========== */
+  --color-primary-500: #027f93; /* Main accent */
+  --color-primary-400: #03a3bc; /* Hover / glow */
+  --color-primary-300: #5fc3d1; /* Soft accent */
 
-  /* Si quieres, puedes definir más cosas aquí luego (spacing, radius, etc.) */
+  /* ========== SECONDARY (ORANGE) ========== */
+  --color-secondary-500: #f78b04;
+  --color-secondary-400: #f9a640;
+
+  /* ========== DANGER (RED) ========== */
+  --color-danger-500: #a30502;
+  --color-danger-400: #c90602;
 }
 
-:root {
-  color-scheme: light dark;
-}
-
-/* Ajustes básicos */
+/* =========================================================
+   BASE TYPOGRAPHY
+   ========================================================= */
 body {
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  @apply bg-brand-950 text-slate-100;
 }
 
 h1,
@@ -68,63 +48,83 @@ pre,
   font-family: var(--font-mono), monospace;
 }
 
-/* Ejemplo de estilos reutilizables */
-.section-title {
-  @apply text-2xl md:text-3xl font-semibold tracking-tight text-cyber-cyan;
-  font-family: var(--font-heading), system-ui, sans-serif;
-}
+/* =========================================================
+   CYBERPUNK EFFECT UTILITIES
+   (Visual effects ONLY, not semantic colors)
+   ========================================================= */
 
-.section-subtitle {
-  @apply text-sm md:text-base text-slate-400 max-w-xl;
-}
-
-/* Cyberpunk Utilities */
+/* Neon Glows */
 .neon-glow-cyan {
-  box-shadow: 0 0 5px rgba(2, 127, 147, 0.5),
+  box-shadow:
+    0 0 5px rgba(2, 127, 147, 0.5),
     0 0 10px rgba(2, 127, 147, 0.3),
     0 0 15px rgba(2, 127, 147, 0.1);
 }
 
 .neon-glow-orange {
-  box-shadow: 0 0 5px rgba(247, 139, 4, 0.5),
+  box-shadow:
+    0 0 5px rgba(247, 139, 4, 0.5),
     0 0 10px rgba(247, 139, 4, 0.3),
     0 0 15px rgba(247, 139, 4, 0.1);
 }
 
 .neon-glow-red {
-  box-shadow: 0 0 5px rgba(163, 5, 2, 0.5),
+  box-shadow:
+    0 0 5px rgba(163, 5, 2, 0.5),
     0 0 10px rgba(163, 5, 2, 0.3),
     0 0 15px rgba(163, 5, 2, 0.1);
 }
 
+/* Neon Borders */
 .neon-border-cyan {
   border-color: #027f93;
-  box-shadow: 0 0 3px rgba(2, 127, 147, 0.4),
+  box-shadow:
+    0 0 3px rgba(2, 127, 147, 0.4),
     inset 0 0 3px rgba(2, 127, 147, 0.2);
 }
 
 .neon-border-orange {
   border-color: #f78b04;
-  box-shadow: 0 0 3px rgba(247, 139, 4, 0.4),
+  box-shadow:
+    0 0 3px rgba(247, 139, 4, 0.4),
     inset 0 0 3px rgba(247, 139, 4, 0.2);
 }
 
+/* Gradients */
 .cyber-gradient-cyan {
-  background: linear-gradient(135deg, #027f93 0%, #03a3bc 100%);
+  background: linear-gradient(
+    135deg,
+    #027f93 0%,
+    #03a3bc 100%
+  );
 }
 
 .cyber-gradient-orange {
-  background: linear-gradient(135deg, #f78b04 0%, #f9a640 100%);
+  background: linear-gradient(
+    135deg,
+    #f78b04 0%,
+    #f9a640 100%
+  );
 }
 
+/* Grid Background */
 .cyber-grid-bg {
   background-image:
-    linear-gradient(rgba(2, 127, 147, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(2, 127, 147, 0.05) 1px, transparent 1px);
+    linear-gradient(
+      rgba(2, 127, 147, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(2, 127, 147, 0.05) 1px,
+      transparent 1px
+    );
   background-size: 20px 20px;
 }
 
-/* Glassmorphism effect */
+/* =========================================================
+   GLASSMORPHISM
+   ========================================================= */
 .glass-cyber {
   background: rgba(43, 23, 24, 0.6);
   backdrop-filter: blur(10px);
@@ -132,7 +132,9 @@ pre,
   border: 1px solid rgba(2, 127, 147, 0.2);
 }
 
-/* Custom Scrollbar */
+/* =========================================================
+   SCROLLBAR (WEBKIT)
+   ========================================================= */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -151,40 +153,40 @@ pre,
   background: #03a3bc;
 }
 
-/* Animations */
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 @keyframes scan-line {
   0% {
     transform: translateY(-100%);
   }
-
   100% {
     transform: translateY(100%);
   }
 }
 
 .scan-line-effect::before {
-  content: '';
+  content: "";
   position: absolute;
+  inset-inline: 0;
   top: 0;
-  left: 0;
-  right: 0;
   height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(2, 127, 147, 0.3),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(2, 127, 147, 0.3),
+    transparent
+  );
   animation: scan-line 8s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 @keyframes pulse-glow {
-
   0%,
   100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.5;
   }
@@ -195,17 +197,14 @@ pre,
 }
 
 @keyframes flicker {
-
   0%,
   100% {
     opacity: 1;
   }
-
   41%,
   43% {
     opacity: 0.8;
   }
-
   45% {
     opacity: 0.9;
   }
@@ -215,7 +214,9 @@ pre,
   animation: flicker 3s linear infinite;
 }
 
-/* Focus states for accessibility */
+/* =========================================================
+   ACCESSIBILITY — FOCUS STATES
+   ========================================================= */
 *:focus-visible {
   outline: 2px solid #027f93;
   outline-offset: 2px;

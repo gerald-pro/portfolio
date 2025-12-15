@@ -4,16 +4,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-orange focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 uppercase tracking-wider",
+    "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 uppercase tracking-wider",
     {
         variants: {
             variant: {
-                default: "bg-cyber-cyan text-white hover:bg-cyber-cyan/90 neon-glow-cyan hover:shadow-[0_0_20px_rgba(2,127,147,0.6)]",
-                destructive: "bg-cyber-red text-white hover:bg-cyber-red/90 neon-glow-red hover:shadow-[0_0_20px_rgba(163,5,2,0.6)]",
-                outline: "border-2 neon-border-cyan bg-transparent text-cyan-300 hover:bg-cyber-cyan/10 hover:neon-glow-cyan",
-                secondary: "bg-cyber-orange text-white hover:bg-cyber-orange/90 neon-glow-orange hover:shadow-[0_0_20px_rgba(247,139,4,0.6)]",
-                ghost: "hover:bg-cyber-cyan/10 hover:text-cyan-300",
-                link: "text-cyan-300 underline-offset-4 hover:underline hover:text-cyber-cyan",
+                default:
+                    "bg-primary-500 text-white hover:bg-primary-400 neon-glow-cyan",
+                secondary:
+                    "bg-secondary-500 text-white hover:bg-secondary-400 neon-glow-orange",
+                destructive:
+                    "bg-danger-500 text-white hover:bg-danger-400 neon-glow-red",
+                outline:
+                    "border-2 neon-border-cyan bg-transparent text-primary-400 hover:bg-primary-500/10",
+                ghost:
+                    "text-primary-400 hover:bg-primary-500/10",
+                link:
+                    "text-primary-400 underline-offset-4 hover:underline hover:text-primary-300",
             },
             size: {
                 default: "h-10 px-6 py-2.5 rounded-sm",
@@ -40,8 +46,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         const Comp = asChild ? Slot : "button"
         return (
             <Comp
-                className={cn(buttonVariants({ variant, size, className }))}
                 ref={ref}
+                className={cn(buttonVariants({ variant, size, className }))}
                 {...props}
             />
         )

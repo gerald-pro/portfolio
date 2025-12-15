@@ -13,7 +13,6 @@ export const drawseq: Project = {
         backend: [
             "Laravel 10.x",
             "PostgreSQL",
-            "Laravel Sanctum",
             "WebSockets",
         ],
         frontend: [

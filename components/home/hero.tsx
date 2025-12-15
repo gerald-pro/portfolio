@@ -1,85 +1,80 @@
-// components/home/hero.tsx
+"use client";
 import Link from "next/link";
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { ArcReactor } from "./arc-reactor";
+import { siteConfig } from "@/config/site";
+import { Mail } from "lucide-react";
+import { LinkedinLogoIcon } from "@phosphor-icons/react";
 
 export function Hero() {
     return (
         <section className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-center py-8 md:py-12">
             {/* Columna izquierda: texto */}
             <div className="space-y-8">
-                {/* Badge superior */}
-                <Badge variant="outline" className="gap-2 py-1.5 pl-2 pr-3">
-                    <span className="h-2 w-2 rounded-full bg-brand-500 animate-pulse" />
-                    Disponible para colaboraciones remotas
-                </Badge>
 
+                <div className="flex justify-start flex-wrap gap-2 opacity-80">
+                    {[
+                        "Laravel",
+                        "Codeigniter",
+                        "Next.js",
+                        "Vue",
+                        "Flutter",
+                        "Spring Boot",
+                    ].map((item) => (
+                        <Badge
+                            key={item}
+                            variant="outline"
+                            className="bg-black/50 backdrop-blur-sm text-cyber-cyan"
+                        >
+                            {item}
+                        </Badge>
+                    ))}
+                </div>
                 {/* Título principal */}
                 <div className="space-y-4">
-                    <h1 className="text-4xl font-bold tracking-tight text-brand-900 dark:text-brand-50 sm:text-5xl md:text-6xl">
-                        Gerald Avalos
-                        <span className="block text-2xl font-normal text-slate-600 dark:text-slate-400 sm:text-3xl mt-2">
+                    <h1 className="text-4xl font-bold tracking-tight text-cyber-cyan sm:text-5xl md:text-6xl neon-glow-cyan">
+                        GERALD AVALOS
+                        <span className="block text-2xl font-normal text-slate-300 sm:text-3xl mt-2 font-sans">
                             Full-Stack Developer
                         </span>
                     </h1>
-                    <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl">
-                        Construyo aplicaciones web y móviles escalables. Especializado en{" "}
-                        <span className="font-medium text-brand-700 dark:text-brand-400">
-                            PHP (Laravel), JavaScript (React/Vue) y Flutter
+                    <p className="text-lg leading-relaxed text-slate-300 max-w-xl">
+                        Desarrollo de aplicaciones {" "}
+                        <span className="font-medium text-cyber-orange neon-glow-orange">
+                            web y móviles
                         </span>
-                        , con un enfoque en arquitectura limpia y experiencia de usuario.
+                        , Habilidad para trabajar en equipo, resolver problemas y aplicar metodologías ágiles.
                     </p>
                 </div>
 
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-3">
-                    <Button asChild size="lg" className="rounded-full">
+                    <Button asChild size="lg">
                         <Link href="/projects">Ver proyectos</Link>
                     </Button>
-                    <Button asChild variant="outline" size="lg" className="rounded-full">
-                        <Link href="/contact">Contactar</Link>
+                    <Button asChild variant="outline" size="lg">
+                        <a href={`mailto:${siteConfig.links.email}`}>
+                            <Mail className="mr-2 h-5 w-5" />
+                            Enviar correo
+                        </a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg">
+                        <a href={siteConfig.links.linkedin}>
+                            <LinkedinLogoIcon size={24} className="mr-2"/>
+                            LinkedIn
+                        </a>
                     </Button>
                 </div>
             </div>
 
-            {/* Columna derecha: foto + tech stack */}
-            <Card className="relative overflow-hidden p-3 border-brand-100/50 dark:border-brand-800/50 bg-white/60 dark:bg-slate-900/60">
-                <div className="overflow-hidden rounded-2xl border border-brand-100/50 dark:border-brand-800/50 bg-brand-50 dark:bg-slate-950">
-                    <Image
-                        src="/profile.jpg"
-                        alt="Gerald Avalos"
-                        width={600}
-                        height={600}
-                        className="h-64 w-full object-cover sm:h-80 transition-transform duration-700 hover:scale-105"
-                        priority
-                    />
+            {/* Columna derecha: Arc Reactor */}
+            <div className="relative flex justify-center items-center p-4">
+                <div className="absolute inset-0 bg-cyber-cyan/5 blur-3xl rounded-full" />
+                <div className="relative z-10 w-full max-w-md">
+                    <ArcReactor />
                 </div>
-
-                <div className="mt-4 space-y-3 px-1 pb-1">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                        Stack Principal
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                        {[
-                            "Laravel",
-                            "Next.js",
-                            "Vue",
-                            "Flutter",
-                            "Google Cloud",
-                        ].map((item) => (
-                            <Badge
-                                key={item}
-                                variant="secondary"
-                                className="bg-brand-50 text-brand-900 hover:bg-brand-100 dark:bg-brand-900/30 dark:text-brand-200 dark:hover:bg-brand-900/50"
-                            >
-                                {item}
-                            </Badge>
-                        ))}
-                    </div>
-                </div>
-            </Card>
+            </div>
 
         </section>
     );

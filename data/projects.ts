@@ -5,16 +5,16 @@ import { moc } from "./projects/moc";
 import { uboldi } from "./projects/uboldi";
 import { drawseq } from "./projects/drawseq";
 import { sistemaEclesiastico } from "./projects/sistema-eclesiastico";
-import { zencillo } from "./projects/zencillo";
+import { viviseven } from "./projects/viviseven";
 import { zencilloFidelizacion } from "./projects/zencillo-fidelizacion";
 
 export const projects: Project[] = [
     hunar,
-    mailEcommerce,
     moc,
+    viviseven,
+    mailEcommerce,
+    zencilloFidelizacion,
     uboldi,
     drawseq,
     sistemaEclesiastico,
-    zencillo,
-    zencilloFidelizacion,
 ];

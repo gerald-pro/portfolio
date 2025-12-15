@@ -32,7 +32,7 @@ const SectionTitle = React.forwardRef<
     <h2
         ref={ref}
         className={cn(
-            "text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-brand-900 dark:text-brand-100",
+            "text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary-500",
             className
         )}
         {...props}
@@ -47,7 +47,7 @@ const SectionSubtitle = React.forwardRef<
     <p
         ref={ref}
         className={cn(
-            "max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-slate-400",
+            "max-w-[700px] text-slate-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed",
             className
         )}
         {...props}

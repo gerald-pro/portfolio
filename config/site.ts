@@ -6,8 +6,8 @@ export const siteConfig = {
     "Portafolio personal de Gerald Avalos, ingeniero en sistemas especializado en desarrollo web y móvil.",
   url: "https://gerald-avalos.com", // Placeholder
   links: {
-    github: "https://github.com/geraldavalos", // Placeholder
-    linkedin: "https://www.linkedin.com/in/geraldavalos", // Placeholder
+    github: "https://github.com/gerald-pro", // Placeholder
+    linkedin: "https://www.linkedin.com/in/gerald-avalos-73a004228", // Placeholder
     email: "avaloss.gerald@gmail.com", // Placeholder
   },
   mainNav: [

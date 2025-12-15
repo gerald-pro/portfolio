@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { aboutData } from "@/data/about";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -9,35 +10,25 @@ import {
 import {
   Section,
   SectionHeader,
-  SectionSubtitle,
   SectionTitle,
 } from "@/components/ui/section";
 
 export default function AboutPage() {
   return (
     <Section>
-
-
       <div className="grid gap-12 md:grid-cols-[2fr_1fr]">
-
         {/* ===== Left: Bio ===== */}
         <div className="space-y-8">
           <SectionHeader>
             <SectionTitle>Sobre mí</SectionTitle>
           </SectionHeader>
+
           <div className="prose prose-invert max-w-none text-slate-300">
-            <p className="leading-relaxed">
-              Soy ingeniero en sistemas especializado en desarrollo web y móvil,
-              soporte técnico y administración de servidores. Me apasiona
-              transformar procesos operativos complejos en aplicaciones robustas
-              y fáciles de usar, priorizando la trazabilidad, la seguridad y la
-              entrega incremental.
-            </p>
-            <p className="leading-relaxed mt-4">
-              Trabajo frecuentemente con equipos remotos bajo metodologías
-              ágiles para asegurar lanzamientos confiables y soporte
-              pos-despliegue.
-            </p>
+            {aboutData.bio.map((paragraph, index) => (
+              <p key={index} className="leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           <div className="space-y-4">
@@ -46,27 +37,18 @@ export default function AboutPage() {
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base">
-                    Licenciatura en Ingeniería en Sistemas
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-slate-400">
-                  Universidad Autónoma Gabriel René Moreno (2019–2024)
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base">
-                    Beca a la excelencia
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-slate-400">
-                  2020 y 2021 (UAGRM)
-                </CardContent>
-              </Card>
+              {aboutData.education.map((item) => (
+                <Card key={item.title}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">
+                      {item.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm text-slate-400">
+                    {item.institution} ({item.period})
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
@@ -77,8 +59,8 @@ export default function AboutPage() {
           <Card className="overflow-hidden">
             <div className="relative aspect-square bg-surface-800">
               <Image
-                src="/profile.jpg"
-                alt="Foto de perfil"
+                src={aboutData.profileImage.src}
+                alt={aboutData.profileImage.alt}
                 fill
                 priority
                 className="object-cover"
@@ -95,38 +77,13 @@ export default function AboutPage() {
             </CardHeader>
 
             <CardContent className="space-y-6">
-              <SkillGroup
-                title="Backend"
-                skills={[
-                  "PHP",
-                  "CodeIgniter",
-                  "Laravel",
-                  "Java",
-                  "Spring Boot",
-                  "NestJS",
-                ]}
-              />
-
-              <SkillGroup
-                title="Frontend"
-                skills={["Vue.js", "React", "Next.js"]}
-              />
-
-              <SkillGroup
-                title="Mobile"
-                skills={["Flutter", "Dart"]}
-              />
-
-              <SkillGroup
-                title="DevOps & Infra"
-                skills={[
-                  "Linux",
-                  "Google Cloud",
-                  "AWS",
-                  "CI/CD",
-                  "WebSockets",
-                ]}
-              />
+              {aboutData.skills.map((group) => (
+                <SkillGroup
+                  key={group.title}
+                  title={group.title}
+                  skills={group.skills}
+                />
+              ))}
             </CardContent>
           </Card>
         </div>

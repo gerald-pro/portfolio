@@ -8,6 +8,8 @@ import { siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
+import { CyberBackground } from "@/components/ui/cyber-background";
+
 // Cyberpunk Typography
 const fontHeading = Orbitron({
   subsets: ["latin"],
@@ -45,13 +47,14 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={cn(
-          "min-h-screen bg-surface-950 text-slate-100 antialiased",
+          "min-h-screen bg-transparent text-slate-100 antialiased", // Changed bg-surface-950 to bg-transparent because the background component handles the color
           fontHeading.variable,
           fontSans.variable,
           fontMono.variable
         )}
       >
-        <div className="flex min-h-screen flex-col">
+        <CyberBackground />
+        <div className="flex min-h-screen flex-col relative z-10">
           <SiteHeader />
           <main className="flex-1">
             <div className="container py-10 px-6 md:py-16">

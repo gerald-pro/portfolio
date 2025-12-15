@@ -5,11 +5,7 @@ import React from "react";
 
 type ReactorState = {
   inside: boolean;
-  tiltX: number;
-  tiltY: number;
-  translateX: number;
-  translateY: number;
-  proximity: number;   // 0 = borde / fuera del reactor, 1 = centro
+  proximity: number;   // 0 = borde / fuera, 1 = centro
   sweepAngle: number;  // deg
 };
 
@@ -18,25 +14,47 @@ export function ArcReactor() {
 
   const [state, setState] = React.useState<ReactorState>({
     inside: false,
-    tiltX: 0,
-    tiltY: 0,
-    translateX: 0,
-    translateY: 0,
     proximity: 0,
     sweepAngle: 0,
   });
 
-  // Ángulos de los anillos (controlados por JS)
+  const { inside, proximity, sweepAngle } = state;
+
+  // ============================
+  // ROTACIÓN DE ANILLOS
+  // ============================
   const [angles, setAngles] = React.useState({
     outer: 0,
     segment: 0,
     middle: 0,
   });
 
-  // Factor de velocidad: target y actual (para suavizar)
+  // ============================
+  // TILT + PARALLAX (INERCIA)
+  // ============================
+  const targetTiltRef = React.useRef({
+    tiltX: 0,
+    tiltY: 0,
+    translateX: 0,
+    translateY: 0,
+  });
+
+  const currentTiltRef = React.useRef({
+    tiltX: 0,
+    tiltY: 0,
+    translateX: 0,
+    translateY: 0,
+  });
+
+  // ============================
+  // SPEED FACTOR (REACTOR BOOST)
+  // ============================
   const targetSpeedFactorRef = React.useRef(1);
   const currentSpeedFactorRef = React.useRef(1);
 
+  // ============================
+  // MOUSE MOVE
+  // ============================
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -50,96 +68,118 @@ export function ArcReactor() {
     const dx = x - cx;
     const dy = y - cy;
 
-    const dist = Math.sqrt(dx * dx + dy * dy);
+    const reactorRadius = Math.min(cx, cy) * 0.85;
+    const dist = Math.min(Math.sqrt(dx * dx + dy * dy), reactorRadius);
+    const proximity = 1 - dist / reactorRadius;
 
-    // Radio aproximado del reactor (no todo el SVG)
-    const reactorRadius = Math.min(cx, cy) * 0.8;
-
-    const clampedDist = Math.min(dist, reactorRadius);
-    const distNorm = clampedDist / reactorRadius; // 0 = centro, 1 = borde
-
-    const proximity = 1 - distNorm; // 1 = centro, 0 = borde / fuera
-
-    // Parallax (normalizado para que no se pase)
     let nx = dx / reactorRadius;
     let ny = dy / reactorRadius;
     const len = Math.sqrt(nx * nx + ny * ny) || 1;
-    nx = nx / Math.max(1, len);
-    ny = ny / Math.max(1, len);
+    nx /= len;
+    ny /= len;
 
-    const tiltStrength = 12;     // deg
-    const parallaxStrength = 10; // px
+    const tiltStrength = 14;
+    const parallaxStrength = 12;
 
-    const tiltX = -ny * tiltStrength;
-    const tiltY = nx * tiltStrength;
+    targetTiltRef.current = {
+      tiltX: -ny * tiltStrength,
+      tiltY: nx * tiltStrength,
+      translateX: nx * parallaxStrength,
+      translateY: ny * parallaxStrength,
+    };
 
-    const translateX = nx * parallaxStrength;
-    const translateY = ny * parallaxStrength;
-
-    // Ángulo del "energy sweep"
-    const sweepAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-
-    // 🔥 Target de velocidad: base (1) + boost suave según proximidad
-    const maxBoost = 10; // 1 ⇒ 2x base en el centro
-    const speedFactorTarget = 1 + proximity * maxBoost;
-    targetSpeedFactorRef.current = speedFactorTarget;
+    targetSpeedFactorRef.current = 1 + proximity * 8;
 
     setState({
       inside: true,
-      tiltX,
-      tiltY,
-      translateX,
-      translateY,
       proximity,
-      sweepAngle,
+      sweepAngle: Math.atan2(dy, dx) * (180 / Math.PI) + 90,
     });
   };
 
   const handleMouseLeave = () => {
-    // Al salir: back to base speed pero suavizado (target = 1)
     targetSpeedFactorRef.current = 1;
 
-    setState((prev) => ({
-      ...prev,
-      inside: false,
+    targetTiltRef.current = {
       tiltX: 0,
       tiltY: 0,
       translateX: 0,
       translateY: 0,
+    };
+
+    setState((prev) => ({
+      ...prev,
+      inside: false,
       proximity: 0,
-      sweepAngle: prev.sweepAngle, // lo dejamos donde estaba
     }));
   };
 
-  // Bucle de animación suave con requestAnimationFrame
+  // ============================
+  // RAF LOOP (FÍSICA + ROTACIÓN)
+  // ============================
   React.useEffect(() => {
     let lastTime = performance.now();
     let rafId: number;
 
     const tick = (time: number) => {
-      const dt = (time - lastTime) / 1000; // segundos
+      const dt = (time - lastTime) / 1000;
       lastTime = time;
 
-      // Suavizado de la velocidad (lerp)
-      const target = targetSpeedFactorRef.current;
-      const current = currentSpeedFactorRef.current;
-      const smoothing = 0.04; // más pequeño = más suave
-      const newCurrent = current + (target - current) * smoothing;
-      currentSpeedFactorRef.current = newCurrent;
+      // --- speed smoothing ---
+      const speedTarget = targetSpeedFactorRef.current;
+      const speedCurrent = currentSpeedFactorRef.current;
+      currentSpeedFactorRef.current +=
+        (speedTarget - speedCurrent) * 0.04;
 
-      // Velocidades base (deg/seg)
-      const outerBaseSpeed = 360 / 60; // da 1 vuelta cada 60s
+      // --- ring rotation ---
+      const outerBaseSpeed = 360 / 60;
       const segmentBaseSpeed = 360 / 45;
       const middleBaseSpeed = 360 / 35;
 
       setAngles((prev) => ({
-        // igual que antes
-        outer: (prev.outer + outerBaseSpeed * newCurrent * dt) % 360,
-        segment: (prev.segment + segmentBaseSpeed * newCurrent * dt) % 360,
-        // 🔁 anillo interior girando al revés
+        outer:
+          (prev.outer +
+            outerBaseSpeed *
+            currentSpeedFactorRef.current *
+            dt) %
+          360,
+        segment:
+          (prev.segment +
+            segmentBaseSpeed *
+            currentSpeedFactorRef.current *
+            dt) %
+          360,
         middle:
-          (prev.middle - middleBaseSpeed * newCurrent * dt + 360) % 360,
+          (prev.middle -
+            middleBaseSpeed *
+            currentSpeedFactorRef.current *
+            dt +
+            360) %
+          360,
       }));
+
+      // --- tilt inertia ---
+      const lerp = 0.08;
+
+      currentTiltRef.current.tiltX +=
+        (targetTiltRef.current.tiltX -
+          currentTiltRef.current.tiltX) *
+        lerp;
+
+      currentTiltRef.current.tiltY +=
+        (targetTiltRef.current.tiltY -
+          currentTiltRef.current.tiltY) *
+        lerp;
+
+      currentTiltRef.current.translateX +=
+        (targetTiltRef.current.translateX -
+          currentTiltRef.current.translateX) *
+        lerp;
+
+      currentTiltRef.current.translateY +=
+        (targetTiltRef.current.translateY -
+          currentTiltRef.current.translateY) *
+        lerp;
 
       rafId = requestAnimationFrame(tick);
     };
@@ -148,18 +188,22 @@ export function ArcReactor() {
     return () => cancelAnimationFrame(rafId);
   }, []);
 
-  const { inside, tiltX, tiltY, translateX, translateY, proximity, sweepAngle } =
-    state;
+  const { tiltX, tiltY, translateX, translateY } =
+    currentTiltRef.current;
 
-  const svgTransform = inside
-    ? `translate3d(${translateX}px, ${translateY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
-    : "none";
+  const svgTransform = `
+    translate3d(${translateX}px, ${translateY}px, 0)
+    rotateX(${tiltX}deg)
+    rotateY(${tiltY}deg)
+  `;
 
-  // Efectos de glow/pulse basados en proximidad
-  const glowIntensity = proximity; // 0..1
-  const coreScale = 1 + glowIntensity * 0.06;
-  const coreOpacity = 0.6 + glowIntensity * 0.4;
-  const innerRingOpacity = 0.5 + glowIntensity * 0.5;
+
+  // ============================
+  // GLOW LOGIC
+  // ============================
+  const coreScale = 1 + proximity * 0.06;
+  const coreOpacity = 0.6 + proximity * 0.4;
+  const innerRingOpacity = 0.5 + proximity * 0.5;
 
   return (
     <div
@@ -175,12 +219,7 @@ export function ArcReactor() {
         style={{
           transform: svgTransform,
           transformStyle: "preserve-3d",
-          // 🔧 origen centrado para que el tilt se vea natural
           transformOrigin: "50% 50%",
-          transformBox: "fill-box",
-          transition: inside
-            ? "transform 80ms ease-out"
-            : "transform 200ms ease-out",
         }}
       >
         {/* Gradients & glow */}

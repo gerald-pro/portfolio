@@ -1,9 +1,11 @@
-// components/home/hero.tsx
+"use client";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { ArcReactor } from "./arc-reactor";
+import { siteConfig } from "@/config/site";
+import { Mail } from "lucide-react";
+import { LinkedinLogoIcon } from "@phosphor-icons/react";
 
 export function Hero() {
     return (
@@ -38,11 +40,11 @@ export function Hero() {
                         </span>
                     </h1>
                     <p className="text-lg leading-relaxed text-slate-300 max-w-xl">
-                        Construyo aplicaciones web y móviles escalables. Especializado en{" "}
+                        Desarrollo de aplicaciones {" "}
                         <span className="font-medium text-cyber-orange neon-glow-orange">
-                            PHP (Laravel), JavaScript (React/Vue) y Flutter
+                            web y móviles
                         </span>
-                        , con un enfoque en arquitectura limpia y experiencia de usuario.
+                        , Habilidad para trabajar en equipo, resolver problemas y aplicar metodologías ágiles.
                     </p>
                 </div>
 
@@ -52,7 +54,16 @@ export function Hero() {
                         <Link href="/projects">Ver proyectos</Link>
                     </Button>
                     <Button asChild variant="outline" size="lg">
-                        <Link href="/contact">Contactar</Link>
+                        <a href={`mailto:${siteConfig.links.email}`}>
+                            <Mail className="mr-2 h-5 w-5" />
+                            Enviar correo
+                        </a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg">
+                        <a href={siteConfig.links.linkedin}>
+                            <LinkedinLogoIcon size={24} className="mr-2"/>
+                            LinkedIn
+                        </a>
                     </Button>
                 </div>
             </div>

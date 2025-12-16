@@ -1,12 +1,12 @@
 import { Project } from "@/types";
 
 export const sistemaEclesiastico: Project = {
-    slug: "sistema-gestion-eclesiastica",
-    title: "Sistema de Gestión Eclesiástica",
+    slug: "church-management-system",
+    title: "Church Management System",
     description:
-        "Sistema educativo para la gestión de ministerios y miembros, demostrando patrones de diseño en Node.js.",
+        "Educational system for managing ministries and members, showcasing design patterns in Node.js.",
     content:
-        "Proyecto educativo diseñado específicamente para implementar y demostrar el uso de patrones de diseño en el desarrollo de software, utilizando como caso de estudio un sistema de gestión eclesiástica. El objetivo principal es ejemplificar la aplicación práctica de patrones de diseño como MVC, Proxy y Strategy en un contexto realista de gestión de ministerios, personas y parentescos.",
+        "This is an educational project specifically designed to implement and demonstrate the use of software design patterns, using a church management system as a case study. Its main goal is to showcase the practical application of design patterns such as MVC, Proxy, and Strategy in a realistic context involving the management of ministries, members, and family relationships.",
     role: "Backend Developer",
     date: "2024",
     techStack: {
@@ -17,44 +17,44 @@ export const sistemaEclesiastico: Project = {
             "Design Patterns (Proxy, Strategy)",
         ],
         frontend: ["HTML5", "CSS3", "JavaScript"],
-        database: ["Relacional (Configurable)"],
+        database: ["Relational (Configurable)"],
     },
     features: [
         {
-            title: "Gestión de Ministerios",
+            title: "Ministry Management",
             items: [
-                "CRUD de ministerios",
-                "Asignación de cargos dentro de cada ministerio",
+                "CRUD operations for ministries",
+                "Assignment of roles within each ministry",
             ],
         },
         {
-            title: "Gestión de Personas",
+            title: "Member Management",
             items: [
-                "Registro de miembros y visitantes",
-                "Gestión de datos personales",
-                "Control de estado (miembro/visitante)",
-                "Asignación de cargos ministeriales",
+                "Registration of members and visitors",
+                "Personal data management",
+                "Status control (member / visitor)",
+                "Assignment of ministry roles",
             ],
         },
         {
-            title: "Gestión de Parentescos",
+            title: "Relationship Management",
             items: [
-                "Definición de tipos de parentesco",
-                "Establecimiento y visualización de relaciones familiares",
+                "Definition of relationship types",
+                "Establishment and visualization of family relationships",
             ],
         },
         {
-            title: "Patrones de Diseño Implementados",
+            title: "Implemented Design Patterns",
             items: [
-                "MVC: Arquitectura principal",
-                "Proxy: Gestión segura de datos de personas",
-                "Strategy: Generación flexible de reportes",
+                "MVC: Core application architecture",
+                "Proxy: Secure management of personal data",
+                "Strategy: Flexible report generation",
             ],
         },
     ],
     links: {},
     images: {
-        cover: "/projects/iglesia/iglesia_strategy_diagram.png", // Placeholder
+        cover: "/projects/iglesia/iglesia_strategy_diagram.png",
         gallery: [
             "/projects/iglesia/iglesia_persona.png",
             "/projects/iglesia/iglesia_strategy_diagram.png",

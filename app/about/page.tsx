@@ -20,7 +20,7 @@ export default function AboutPage() {
         {/* ===== Left: Bio ===== */}
         <div className="space-y-8">
           <SectionHeader>
-            <SectionTitle>Sobre mí</SectionTitle>
+            <SectionTitle>About Me</SectionTitle>
           </SectionHeader>
 
           <div className="prose prose-invert max-w-none text-slate-300">
@@ -33,7 +33,7 @@ export default function AboutPage() {
 
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold tracking-tight text-slate-200">
-              Educación y Certificaciones
+              Education & Certifications
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">
-                Habilidades Técnicas
+                Technical Skills
               </CardTitle>
             </CardHeader>
 

@@ -355,3 +355,124 @@ a:focus-visible {
 .animate-glitch-flash {
   animation: glitch-flash 10s infinite forwards;
 }
+
+/* =========================================================
+   PAGE TRANSITION GLITCH EFFECTS
+   ========================================================= */
+
+/* Glitch layers for chromatic aberration */
+.glitch-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(26, 12, 13, 0.95) 20%,
+      rgba(26, 12, 13, 0.95) 80%,
+      transparent 100%);
+  mix-blend-mode: screen;
+  animation: glitch-shift 0.2s steps(2) infinite;
+}
+
+.glitch-layer-red {
+  background: rgba(255, 0, 0, 0.1);
+  animation: glitch-shift-red 0.15s steps(3) infinite;
+}
+
+.glitch-layer-green {
+  background: rgba(0, 255, 0, 0.1);
+  animation: glitch-shift-green 0.17s steps(3) infinite;
+}
+
+.glitch-layer-blue {
+  background: rgba(0, 100, 255, 0.1);
+  animation: glitch-shift-blue 0.19s steps(3) infinite;
+}
+
+@keyframes glitch-shift-red {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-3px);
+  }
+
+  40% {
+    transform: translateX(3px);
+  }
+
+  60% {
+    transform: translateX(-2px);
+  }
+
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes glitch-shift-green {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(2px);
+  }
+
+  50% {
+    transform: translateX(-2px);
+  }
+
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes glitch-shift-blue {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-1px);
+  }
+
+  60% {
+    transform: translateX(1px);
+  }
+}
+
+/* Stagger animation helper classes */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Build-up effect for images */
+@keyframes image-build {
+  0% {
+    opacity: 0;
+    filter: blur(10px) brightness(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+  }
+}
+
+.animate-image-build {
+  animation: image-build 0.6s ease-out forwards;
+}

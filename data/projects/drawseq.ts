@@ -1,12 +1,12 @@
 import { Project } from "@/types";
 
 export const drawseq: Project = {
-    slug: "drawseq-diagramas",
+    slug: "drawseq-diagrams",
     title: "DrawSeq",
     description:
-        "Aplicación web para la creación colaborativa de diagramas de secuencia en tiempo real.",
+        "Web application for real-time collaborative creation of sequence diagrams.",
     content:
-        "DrawSeq es una aplicación web para la creación colaborativa de diagramas de secuencia. Permite a los usuarios diseñar, editar y compartir diagramas de secuencia en tiempo real, facilitando la visualización de interacciones entre objetos en un sistema. Cuenta con herramientas avanzadas de edición, exportación a múltiples formatos (incluyendo código fuente) y gestión de proyectos colaborativos.",
+        "DrawSeq is a web application designed for the collaborative creation of sequence diagrams. It allows users to design, edit, and share sequence diagrams in real time, making it easier to visualize interactions between objects within a system. The platform includes advanced editing tools, export options to multiple formats (including source code), and collaborative project management features.",
     role: "Full-Stack Developer",
     date: "2024",
     techStack: {
@@ -18,7 +18,7 @@ export const drawseq: Project = {
         frontend: [
             "Vue.js 3",
             "Inertia.js",
-            "TailwindCSS",
+            "Tailwind CSS",
             "GoJS",
             "SASS",
         ],
@@ -26,41 +26,41 @@ export const drawseq: Project = {
     },
     features: [
         {
-            title: "Editor de Diagramas",
+            title: "Diagram Editor",
             items: [
-                "Creación de diagramas de secuencia con drag & drop",
-                "Soporte para actores, líneas de vida, mensajes y fragmentos",
-                "Herramientas de edición: deshacer/rehacer, zoom, alineación",
+                "Drag-and-drop creation of sequence diagrams",
+                "Support for actors, lifelines, messages, and fragments",
+                "Editing tools: undo/redo, zoom, alignment",
             ],
         },
         {
-            title: "Colaboración en Tiempo Real",
+            title: "Real-Time Collaboration",
             items: [
-                "Edición colaborativa simultánea",
-                "Sincronización de cambios en tiempo real",
-                "Indicadores de presencia de usuarios",
+                "Simultaneous collaborative editing",
+                "Real-time change synchronization",
+                "User presence indicators",
             ],
         },
         {
-            title: "Gestión de Proyectos",
+            title: "Project Management",
             items: [
-                "Creación y edición de proyectos múltiples",
-                "Invitaciones a colaboradores y control de acceso",
-                "Historial de cambios",
+                "Creation and editing of multiple projects",
+                "Collaborator invitations and access control",
+                "Change history tracking",
             ],
         },
         {
-            title: "Exportación e Importación",
+            title: "Export & Import",
             items: [
-                "Exportación a JPEG, JSON, XMI (Enterprise Architect)",
-                "Generación de código fuente (Java, PHP, C#)",
-                "Importación de diagramas existentes",
+                "Export to JPEG, JSON, XMI (Enterprise Architect)",
+                "Source code generation (Java, PHP, C#)",
+                "Import of existing diagrams",
             ],
         },
     ],
     links: {},
     images: {
-        cover: "/projects/drawseq/drawseq_editor.png", // Placeholder
+        cover: "/projects/drawseq/drawseq_editor.png",
         gallery: [
             "/projects/drawseq/drawseq_projects.png",
             "/projects/drawseq/drawseq_create_project.png",

@@ -4,9 +4,9 @@ export const mailEcommerce: Project = {
     slug: "ecommerce-mail-processor",
     title: "E-Commerce Mail Processor",
     description:
-        "E-commerce basado en correo electrónico que permite interactuar con una tienda en línea usando solo un cliente de correo.",
+        "Email-based e-commerce system that allows users to interact with an online store using only an email client.",
     content:
-        "El sistema es un E-commerce basado en correo electrónico que permite a los usuarios interactuar completamente con una tienda en línea utilizando únicamente su cliente de correo electrónico, sin necesidad de acceder a un navegador web. Los usuarios envían comandos o solicitudes por correo electrónico y reciben respuestas con contenido HTML formateado que simula una interfaz web. Incluye diseño HTML responsivo, botones interactivos y formularios de compra directamente en el correo.",
+        "This system is an email-based e-commerce platform that enables users to fully interact with an online store using only their email client, without accessing a web browser. Users send commands or requests via email and receive responses with formatted HTML content that simulates a web interface. The system includes responsive HTML email design, interactive buttons, and purchase forms embedded directly within emails.",
     role: "Backend Developer",
     date: "2024",
     techStack: {
@@ -30,23 +30,23 @@ export const mailEcommerce: Project = {
     },
     features: [
         {
-            title: "Interacción por Correo",
+            title: "Email-Based Interaction",
             items: [
-                "Envío de comandos por correo electrónico",
-                "Respuestas con contenido HTML simulando interfaz web",
-                "Navegación por catálogo y compras desde la bandeja de entrada",
-                "Seguimiento de pedidos por correo",
+                "Command-based interaction via email",
+                "HTML responses simulating a web interface",
+                "Catalog browsing and purchases directly from the inbox",
+                "Order tracking via email",
             ],
         },
         {
-            title: "Funcionalidades",
+            title: "Core Features",
             items: [
-                "Gestión de plantillas de correo con variables dinámicas",
-                "Envío individual y masivo de correos",
-                "Programación de envíos",
-                "Gestión de usuarios y monitoreo del sistema",
-                "Reportes y estadísticas de envíos",
-                "Gráficos de rendimiento con JFreeChart",
+                "Email template management with dynamic variables",
+                "Individual and bulk email delivery",
+                "Scheduled email sending",
+                "User management and system monitoring",
+                "Delivery reports and analytics",
+                "Performance charts generated with JFreeChart",
             ],
         },
     ],

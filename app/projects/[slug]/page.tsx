@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         >
                             <path d="m15 18-6-6 6-6" />
                         </svg>
-                        Volver a Proyectos
+                        Back to Projects
                     </Link>
                 </Button>
             </div>
@@ -81,14 +81,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             {project.links?.demo && (
                                 <Button asChild>
                                     <Link href={project.links.demo} target="_blank">
-                                        Ver Demo
+                                        View Demo
                                     </Link>
                                 </Button>
                             )}
                             {project.links?.repo && (
                                 <Button asChild variant="outline">
                                     <Link href={project.links.repo} target="_blank">
-                                        Código
+                                        Source Code
                                     </Link>
                                 </Button>
                             )}
@@ -115,7 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         {/* Overview */}
                         <div className="space-y-4">
                             <h3 className="text-xl font-semibold text-primary-400">
-                                Descripción General
+                                Overview
                             </h3>
                             <p className="text-slate-300 leading-relaxed">
                                 {project.content}
@@ -127,7 +127,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                             project.images.gallery.length > 0 && (
                                 <section className="space-y-6">
                                     <h2 className="text-2xl font-bold tracking-tight text-slate-100">
-                                        Galería
+                                        Gallery
                                     </h2>
                                     <ProjectGallery
                                         images={project.images.gallery}
@@ -140,7 +140,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         {project.features && (
                             <div className="space-y-6">
                                 <h3 className="text-xl font-semibold text-primary-400">
-                                    Funcionalidades Clave
+                                    Key Features
                                 </h3>
                                 <div className="grid gap-6 sm:grid-cols-2">
                                     {project.features.map((featureGroup) => (
@@ -169,7 +169,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         <Card>
                             <CardHeader>
                                 <CardTitle className="text-lg">
-                                    Stack Tecnológico
+                                    Technology Stack
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-6">

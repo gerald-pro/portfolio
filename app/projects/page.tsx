@@ -25,9 +25,9 @@ export default function ProjectsPage() {
   return (
     <Section>
       <SectionHeader>
-        <SectionTitle>Proyectos</SectionTitle>
+        <SectionTitle>Projects</SectionTitle>
         <SectionSubtitle>
-          Una selección de mis trabajos más recientes y relevantes.
+          A selection of my most recent and relevant work.
         </SectionSubtitle>
       </SectionHeader>
 
@@ -82,7 +82,7 @@ export default function ProjectsPage() {
             <CardFooter>
               <Button asChild className="w-full">
                 <Link href={`/projects/${project.slug}`}>
-                  Ver detalles
+                  View details
                 </Link>
               </Button>
             </CardFooter>

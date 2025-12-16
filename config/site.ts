@@ -1,20 +1,19 @@
-// config/site.ts
 export const siteConfig = {
   name: "Gerald Avalos",
   role: "Software Developer",
   description:
-    "Portafolio personal de Gerald Avalos, ingeniero en sistemas especializado en desarrollo web y móvil.",
-  url: "https://gerald-avalos.com", // Placeholder
+    "Personal portfolio of Gerald Avalos, a systems engineer specialized in web and mobile application development.",
+  url: "https://gerald-avalos.com",
   links: {
-    github: "https://github.com/gerald-pro", // Placeholder
-    linkedin: "https://www.linkedin.com/in/gerald-avalos-73a004228", // Placeholder
-    email: "avaloss.gerald@gmail.com", // Placeholder
+    github: "https://github.com/gerald-pro",
+    linkedin: "https://www.linkedin.com/in/gerald-avalos-73a004228",
+    email: "avaloss.gerald@gmail.com",
   },
   mainNav: [
-    { href: "/", label: "Inicio" },
-    { href: "/projects", label: "Proyectos" },
-    { href: "/experience", label: "Experiencia" },
-    { href: "/about", label: "Sobre mí" },
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/experience", label: "Experience" },
+    { href: "/about", label: "About" },
   ],
 } as const;
 

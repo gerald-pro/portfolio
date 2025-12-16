@@ -1,4 +1,3 @@
-// components/layout/site-header.tsx
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -10,9 +9,7 @@ export function SiteHeader() {
           <span className="text-sm font-bold tracking-tight text-cyber-cyan transition-all group-hover:neon-glow-cyan font-heading">
             {siteConfig.name.toUpperCase()}
           </span>
-          <span className="hidden text-xs text-slate-400 sm:inline font-mono">
-            // {siteConfig.role}
-          </span>
+          <span className="hidden text-xs text-slate-400 sm:inline font-mono">// {siteConfig.role}</span>
         </Link>
 
         <nav className="flex items-center gap-4 text-sm font-medium text-slate-300">

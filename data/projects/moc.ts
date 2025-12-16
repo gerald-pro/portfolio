@@ -1,52 +1,65 @@
 import { Project } from "@/types";
 
 export const moc: Project = {
-    slug: "moc-logistica",
+    slug: "moc-logistics",
     isFeatured: true,
-    title: "MOC (Monitoreo y Operación de Camiones)",
+    title: "MOC (Truck Monitoring & Operations)",
     description:
-        "Sistema de gestión logística para el seguimiento y monitoreo en tiempo real de flotas de transporte.",
+        "Logistics management system for real-time tracking and monitoring of transportation fleets.",
     content:
-        "MOC (Monitoreo y Operación de Camiones) es un sistema de gestión logística desarrollado con CodeIgniter 4 que permite el seguimiento y monitoreo en tiempo real de flotas de transporte de mercancias. El sistema está diseñado para optimizar la operación de transporte de carga, facilitando la gestión de órdenes, seguimiento de vehículos y comunicación con operadores.",
+        "MOC (Truck Monitoring & Operations) is a logistics management system developed with CodeIgniter 4 that enables real-time tracking and monitoring of freight transportation fleets. The platform is designed to optimize cargo transport operations by simplifying order management, vehicle tracking, and communication with drivers and operators.",
     role: "Full-Stack Developer",
     date: "2024",
     techStack: {
-        backend: ["PHP", "CodeIgniter 4", "MySQL (Google Cloud)", "RESTful API"],
-        frontend: ["HTML", "CSS", "JavaScript", "Vue.js"],
-        services: ["Google Maps API", "Expo Push Notifications"],
+        backend: [
+            "PHP",
+            "CodeIgniter 4",
+            "MySQL (Google Cloud)",
+            "RESTful API",
+        ],
+        frontend: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Vue.js",
+        ],
+        services: [
+            "Google Maps API",
+            "Expo Push Notifications",
+        ],
     },
     features: [
         {
-            title: "Gestión de Órdenes",
+            title: "Order Management",
             items: [
-                "Creación y seguimiento de órdenes de transporte",
-                "Asignación de unidades y operadores a rutas",
-                "Monitoreo en tiempo real de entregas",
+                "Creation and tracking of transport orders",
+                "Assignment of vehicles and drivers to routes",
+                "Real-time delivery monitoring",
             ],
         },
         {
-            title: "Seguimiento y Monitoreo",
+            title: "Tracking & Monitoring",
             items: [
-                "Geolocalización en tiempo real de vehículos",
-                "Monitoreo de paradas y tiempos de carga/descarga",
-                "Alertas automáticas por demoras o incidencias",
-                "Mapas de ruta y minimapas",
+                "Real-time vehicle geolocation",
+                "Monitoring of stops and loading/unloading times",
+                "Automatic alerts for delays or incidents",
+                "Route maps and mini-maps",
             ],
         },
         {
-            title: "Gestión de Flota y Comunicación",
+            title: "Fleet Management & Communication",
             items: [
-                "Administración de vehículos y operadores",
-                "Seguimiento de mantenimiento",
-                "Notificaciones push y alertas por WhatsApp",
-                "Comunicación en tiempo real con operadores",
+                "Vehicle and driver administration",
+                "Maintenance tracking",
+                "Push notifications and WhatsApp alerts",
+                "Real-time communication with drivers",
             ],
         },
         {
-            title: "Análisis",
+            title: "Analytics",
             items: [
-                "Métricas de rendimiento y eficiencia operativa",
-                "Reportes de tiempos de tránsito y cumplimiento",
+                "Operational performance and efficiency metrics",
+                "Transit time and compliance reports",
             ],
         },
     ],
@@ -54,7 +67,7 @@ export const moc: Project = {
         demo: "https://moc.mx/",
     },
     images: {
-        cover: "/projects/moc/moc_real_time.png", // Placeholder
+        cover: "/projects/moc/moc_real_time.png",
         gallery: [
             "/projects/moc/moc_real_time.png",
             "/projects/moc/moc_request_a_truck.png",

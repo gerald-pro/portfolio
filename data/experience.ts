@@ -1,4 +1,3 @@
-// data/experience.ts
 import { Experience } from "@/types/experience";
 
 export const experience: Experience[] = [
@@ -7,15 +6,16 @@ export const experience: Experience[] = [
         role: "Software Developer",
         company: "Zencillo Software",
         location: "Miami, USA",
-        modality: "Remoto",
+        modality: "Remote",
         startDate: "Feb 2025",
-        endDate: "Presente",
+        endDate: "Nov 2025",
         description:
-            "Desarrollo de aplicación web multiplataforma con Flutter orientada a fidelización; mantenimiento de infraestructura en Firebase; integración REST y WebSockets para mensajería en tiempo real.",
+            "Development of business-oriented software solutions, contributing to web and mobile applications, service integration, and real-time communication features.",
         responsibilities: [
-            "Desarrollo e integración de API REST.",
-            "Implementación de WebSockets en tiempo real.",
-            "Gestión de infraestructura y optimización continua.",
+            "Designed and implemented RESTful APIs to integrate internal features and services.",
+            "Developed backend services in Java using Spring Boot.",
+            "Implemented WebSockets for real-time messaging and communication.",
+            "Built cross-platform mobile applications using Flutter.",
         ],
     },
     {
@@ -23,41 +23,46 @@ export const experience: Experience[] = [
         role: "Full-Stack Developer",
         company: "Desarrollamelo",
         location: "Bolivia",
-        modality: "Remoto",
-        startDate: "Jun 2024",
-        endDate: "Ene 2025",
+        modality: "Remote",
+        startDate: "Apr 2024",
+        endDate: "Jan 2025",
         description:
-            "Desarrollo de aplicaciones web en Laravel y Vue.js; creación de aplicaciones móviles con Flutter.",
+            "Contributed to the development of enterprise applications and internal systems, including CRM solutions, e-commerce platforms, and web applications for the real estate sector.",
         responsibilities: [
-            "Desarrollo de APIs REST y módulos backend.",
-            "Mejoras UX y desarrollo front-end en Vue.js.",
-            "Aplicaciones móviles multiplataforma con Flutter.",
+            "Developed backend services for a CRM-like system using Java and Spring Boot.",
+            "Designed APIs and data queries using GraphQL.",
+            "Integrated NoSQL databases using MongoDB.",
+            "Developed web applications using PHP (Laravel) and Vue.js.",
+            "Supported the development of mobile applications built with Flutter.",
         ],
     },
     {
         id: "uagrm",
         role: "Full-Stack Developer",
-        company: "Departamento de Acreditación, UAGRM",
+        company: "Accreditation Department, UAGRM",
         startDate: "2023",
-        endDate: "6 meses",
+        endDate: "6 months",
         description:
-            "Desarrollo de una aplicación de autoevaluación institucional usando Laravel, Informix, Livewire y jQuery.",
+            "Developed an institutional application to support academic self-evaluation and accreditation processes.",
         responsibilities: [
-            "Desarrollo de funcionalidades para procesos de acreditación.",
-            "Integración con bases de datos Informix.",
+            "Developed backend and frontend modules using PHP and Laravel.",
+            "Integrated Informix databases to manage academic information.",
+            "Designed and enhanced features focused on data validation and control.",
         ],
     },
     {
         id: "inforfactory",
-        role: "Pasante",
+        role: "Software Developer Intern",
         company: "Inforfactory",
         startDate: "2023",
-        endDate: "6 meses",
+        endDate: "6 months",
         description:
-            "Desarrollo de herramientas para extracción masiva de datos de PDFs y monitorización de recursos AWS.",
+            "Assisted in the development of internal solutions focused on process automation and system monitoring.",
         responsibilities: [
-            "Automatización de extracción masiva de información desde PDFs.",
-            "Monitorización de servicios AWS.",
+            "Automated processes for structured data extraction from PDF files.",
+            "Developed web-based tools to monitor resources and services on AWS.",
+            "Participated in continuous integration and deployment (CI/CD) pipelines.",
+            "Collaborated within a Scrum-based agile team.",
         ],
     },
 ];

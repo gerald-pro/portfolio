@@ -4,25 +4,25 @@ import { AboutData } from "@/types/about";
 export const aboutData: AboutData = {
     profileImage: {
         src: "/profile.jpg",
-        alt: "Foto de perfil",
+        alt: "Profile photo",
     },
 
     bio: [
-        "Soy ingeniero en sistemas especializado en desarrollo web y móvil, soporte técnico y administración de servidores. Me apasiona transformar procesos operativos complejos en aplicaciones robustas y fáciles de usar, priorizando la trazabilidad, la seguridad y la entrega incremental.",
-        "Trabajo frecuentemente con equipos remotos bajo metodologías ágiles para asegurar lanzamientos confiables y soporte pos-despliegue.",
+        "I am a Systems Engineer focused on software development, with experience building business-oriented applications and systems. I primarily work on backend development, API design, and service integration, contributing to both web and mobile projects.",
+        "I have collaborated with remote and multidisciplinary teams in agile environments, delivering solutions for companies and institutions while prioritizing code quality, maintainability, and incremental delivery."
     ],
 
     education: [
         {
-            title: "Licenciatura en Ingeniería en Sistemas",
+            title: "Bachelor’s Degree in Systems Engineering",
             institution:
                 "Universidad Autónoma Gabriel René Moreno",
             period: "2019 – 2024",
         },
         {
-            title: "Beca a la excelencia",
+            title: "Academic Excellence Scholarship",
             institution: "Universidad Autónoma Gabriel René Moreno",
-            period: "2020 y 2021",
+            period: "2020 and 2021",
         },
     ],
 
@@ -30,28 +30,46 @@ export const aboutData: AboutData = {
         {
             title: "Backend",
             skills: [
-                "PHP",
-                "CodeIgniter",
-                "Laravel",
                 "Java",
                 "Spring Boot",
-                "NestJS",
+                "PHP",
+                "Laravel",
+                "CodeIgniter",
+                "Node.js",
+                "REST APIs",
+                "GraphQL",
             ],
         },
         {
             title: "Frontend",
-            skills: ["Vue.js", "React", "Next.js"],
+            skills: [
+                "JavaScript",
+                "Vue.js",
+                "React",
+                "Next.js",
+            ],
         },
         {
             title: "Mobile",
-            skills: ["Flutter", "Dart"],
+            skills: [
+                "Flutter",
+                "Dart",
+            ],
         },
         {
-            title: "DevOps & Infra",
+            title: "Databases",
             skills: [
-                "Linux",
-                "Google Cloud",
-                "AWS",
+                "PostgreSQL",
+                "MySQL",
+                "Informix",
+                "MongoDB",
+            ],
+        },
+        {
+            title: "Tools & Practices",
+            skills: [
+                "Git",
+                "Scrum",
                 "CI/CD",
                 "WebSockets",
             ],

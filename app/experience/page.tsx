@@ -17,9 +17,9 @@ export default function ExperiencePage() {
   return (
     <Section>
       <SectionHeader>
-        <SectionTitle>Experiencia Profesional</SectionTitle>
+        <SectionTitle>Professional Experience</SectionTitle>
         <SectionSubtitle>
-          Mi trayectoria en el desarrollo de software y liderazgo técnico.
+          My journey in software development and technical leadership.
         </SectionSubtitle>
       </SectionHeader>
 

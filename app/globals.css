@@ -22,7 +22,6 @@
   --color-primary-400: #03a3bc;
   /* Hover / glow */
   --color-primary-300: #5fc3d1;
-  /* Soft accent */
 
   /* ========== SECONDARY (ORANGE) ========== */
   --color-secondary-500: #f78b04;
@@ -36,6 +35,12 @@
 /* =========================================================
    BASE TYPOGRAPHY
    ========================================================= */
+/* html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+} */
+
 body {
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
@@ -278,7 +283,7 @@ a:focus-visible {
   right: -50%;
   bottom: -50%;
   width: 200%;
-  height: 200%;
+  height: 200vh;
   background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
   background-repeat: repeat;
   animation: noise-animation .5s infinite;

@@ -25,10 +25,10 @@ export function Hero() {
     });
 
     return (
-        <section className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-center py-8 md:py-12">
+        <section className="grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center py-8 md:py-12">
             {/* Left column: text */}
             <div className="space-y-8">
-                <div className="flex justify-start flex-wrap gap-2 opacity-80">
+                <div className="flex justify-start flex-wrap gap-1.5 md:gap-2 opacity-80">
                     {techBadges.map((item, index) => (
                         <Badge
                             key={item}
@@ -68,7 +68,7 @@ export function Hero() {
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 md:gap-3">
                     <Button
                         asChild
                         size="lg"
@@ -105,11 +105,11 @@ export function Hero() {
 
             {/* Right column: Arc Reactor */}
             <div
-                className={`relative flex justify-center items-center p-4 stagger-item ${visibleItems[10] ? "visible" : ""
+                className={`relative flex justify-center items-center stagger-item ${visibleItems[10] ? "visible" : ""
                     }`}
             >
                 <div className="absolute inset-0 bg-cyber-cyan/5 blur-3xl rounded-full" />
-                <div className="relative z-10 w-full max-w-md">
+                <div className="z-10 w-full mx-14">
                     <ArcReactor />
                 </div>
             </div>

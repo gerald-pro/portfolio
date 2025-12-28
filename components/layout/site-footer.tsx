@@ -30,14 +30,14 @@ export function SiteFooter() {
               LinkedIn
             </Link>
           )}
-          <Link
+          {/* <Link
             href="/cv_resume.pdf"
             target="_blank"
             rel="noreferrer"
             className="rounded-sm border-2 neon-border-orange px-3 py-1 text-xs font-medium text-cyber-orange transition-all hover:bg-cyber-orange hover:text-white hover:neon-glow-orange uppercase tracking-wide font-mono"
           >
             Download CV
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>
